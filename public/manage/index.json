@@ -1,0 +1,30 @@
+{
+	"category": "Management",
+	"content": [
+		{
+			"url": "https://github.com/kinmersha/LocalBooru",
+			"name": "LocalBooru",
+			"desc": "An application to organize local media files similarly to an image booru."
+		},
+		{
+			"url": "https://github.com/hydrusnetwork/hydrus",
+			"name": "Hydrus",
+			"desc": "Exhaustive program if you're managing a large collection and need something more than folders to organize and maintain."
+		},
+		{
+			"url": "https://stashapp.cc",
+			"name": "stashapp",
+			"desc": "FOSS Porn organizer"
+		},
+		{
+			"url": "https://github.com/porn-vault/porn-vault",
+			"name": "porn-vault",
+			"desc": "FOSS Porn organizer, with a few features to enhance your viewing experience"
+		},
+		{
+			"url": "https://jellyfin.org/",
+			"name": "jellyfin",
+			"desc": "Streaming media system, think Plex, but FOSS"
+		}
+	]
+}

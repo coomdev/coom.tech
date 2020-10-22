@@ -1,0 +1,29 @@
+{
+	"categories": [
+		{
+			"title": "Clients",
+			"href": "./clients",
+			"desc": "Software used to access galleries, boorus, and others without a web browser"
+		},
+		{
+			"title": "Management",
+			"href": "./manage",
+			"desc": "Utilities to manage and sort your collections"
+		},
+		{
+			"title": "Games",
+			"href": "./games",
+			"desc": "Porn games"
+		},
+		{
+			"title": "Toys",
+			"href": "./toys",
+			"desc": "Where to buy toys and how to use them."
+		},
+		{
+			"title": "Miscellaneous",
+			"href": "./misc",
+			"desc": "Miscellaneous utilities"
+		}
+	]
+}

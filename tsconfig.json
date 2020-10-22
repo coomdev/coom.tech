@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist",
+		"allowJs": false,
+		"target": "es6",
+		"module": "commonjs",
+		"inlineSourceMap": true,
+		"inlineSources": true,
+		"strict": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"lib": [
+			"es7", 
+			"dom",
+			"esnext"
+		],
+	},
+	"include": [
+		"./src/**/*",
+	]
+}

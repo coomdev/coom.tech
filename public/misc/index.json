@@ -1,0 +1,55 @@
+{
+	"category": "Miscellaneous",
+	"content": [
+		{
+			"url": "https://github.com/Difegue/LANraragi",
+			"name": "LANraragi",
+			"desc": "Open source server for archival of comics/manga, running on Mojolicious + Redis."
+		},
+		{
+			"url": "https://github.com/Mayriad/Mayriads-EH-Master-Script",
+			"name": "Mayriads-EH",
+			"desc": "Userscript to add features to E-Hentai"
+		},
+		{
+			"url": "https://github.com/deeppomf/DeepCreamPy",
+			"name": "DeepCreamPy",
+			"desc": "Decensors hentai with ML"
+		},
+		{
+			"url": "https://github.com/nihui/waifu2x-ncnn-vulkan",
+			"name": "Waifu2x",
+			"desc": "Upscale anime-style pictures"
+		},
+		{
+			"url": "https://github.com/RipMeApp/ripme",
+			"name": "ripme",
+			"desc": "Rip galleries from many websites"
+		},
+		{
+			"url": "https://github.com/ytdl-org/youtube-dl",
+			"name": "youtube-dl",
+			"desc": "Script to download and convert videos from many websites"
+		},
+		{
+			"url": "https://jdownloader.org",
+			"name": "jdownloader",
+			"desc": "Multidownloader that supports many sites/formats"
+		},
+		{
+			"url": "https://instaloader.github.io/",
+			"name": "instaloader",
+			"desc": "BTFO 3DPD thots with this scrapper"
+		},
+		{
+			"url": "https://github.com/arc298/instagram-scraper",
+			"name": "instagram-scraper",
+			"desc": ",3DPD<br>shiggy diggy"
+		},
+		{
+			"url": "https://github.com/dvingerh/PyInstaLive",
+			"name": "PyInstaLive",
+			"desc": ",Download Instagram livestreams and BTFO thots"
+		}
+	]
+}

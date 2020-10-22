@@ -1,0 +1,113 @@
+{
+	"category": "Clients",
+	"content": [
+		{
+			"url": "https://github.com/KurtBestor/Hitomi-Downloader",
+			"name": "Hitomi Downloader",
+			"desc": "GUI Utility to download from a lot of different websites, galleries, streaming services..."
+		},
+		{
+			"url": "https://gitlab.com/squishydreams/pandaforever",
+			"name": "pandaforever",
+			"desc": "C program made specifically to scrape ExHentai Galleries"
+		},
+		{
+			"url": "https://github.com/RicterZ/nhentai",
+			"name": "nHentai",
+			"desc": "nHentai is a CLI tool for downloading doujinshi from nhentai.net"
+		},
+		{
+			"url": "https://github.com/ahodesuka/ahoviewer",
+			"name": "ahoviewer",
+			"desc": "A GTK image viewer, manga reader, and booru browser."
+		},
+		{
+			"url": "https://bitbucket.org/neelabo/neeview/downloads",
+			"name": "NeeView",
+			"desc": "Windows-only manga browser"
+		},
+		{
+			"url": "https://flathub.org/apps/details/com.georgefb.mangareader",
+			"name": "Manga Reader",
+			"desc": "Flatpak local manga reader"
+		},
+		{
+			"url": "https://github.com/multiSnow/mcomix3",
+			"name": "Linux Manga Reader",
+			"desc": "Fork of MComix, a local manga reader"
+		},
+		{
+			"url": "https://www.linuxlinks.com/qcomicbook",
+			"name": "qcomicbook",
+			"desc": "Do we really need that many local manga reader for linux?"
+		},
+		{
+			"url": "https://yacreader.com/downloads",
+			"name": "yacreader",
+			"desc": "This one is multiplatform"
+		},
+		{
+			"url": "https://github.com/ahodesuka/ahoviewer",
+			"name": "Grabber",
+			"desc": "Booru client that supports most boorus, and also lets you mass-download files."
+		},
+		{
+			"url": "https://github.com/mikf/gallery-dl",
+			"name": "gallery-dl",
+			"desc": "Something like Hitomi and Grabber, but as a CLI tool"
+		},
+		{
+			"url": "https://github.com/loadletter/grabber-viewer",
+			"name": "grabber-viewer",
+			"desc": "Booru-like Web server for Grabber"
+		},
+		{
+			"url": "https://github.com/Nandaka/PixivUtil2",
+			"name": "PixivUtil2",
+			"desc": "Download from Pixiv."
+		},
+		{
+			"url": "https://github.com/vn-ki/anime-downloader",
+			"name": "Anime-Downloader",
+			"desc": "Download anime from a ton of different sources"
+		},
+		{
+			"url": "https://github.com/Ajatt-Tools/manyame",
+			"name": "manyame",
+			"desc": "Download anime from XDCC sources"
+		},
+		{
+			"group": "Android Apps",
+			"cats": [
+				"lg"
+			],
+			"content": [
+				{
+					"url": "https://github.com/inorichi/tachiyomi",
+					"name": "tachiyomi",
+					"desc": "Manga reader"
+				},
+				{
+					"url": "https://github.com/NO-ob/LoliSnatcher_Droid",
+					"name": "LoliSnatcher",
+					"desc": "Booru client for Android (Actively maintained)"
+				},
+				{
+					"url": "https://github.com/flexbooru/flexbooru",
+					"name": "Flexbooru",
+					"desc": "A responsive Booru client for Android"
+				},
+				{
+					"url": "https://github.com/tjg1/nori",
+					"name": "Nori",
+					"desc": "Booru client, with a better viewer than LoliSnatch according to anon (not maintained anymore)."
+				},
+				{
+					"url": "http://www.ehviewer.com/",
+					"name": "ehviewer",
+					"desc": "E-Hentai viewer (not maintained anymore)"
+				}
+			]
+		}
+	]
+}
