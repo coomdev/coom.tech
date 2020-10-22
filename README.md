@@ -3,7 +3,7 @@ Setup
 
 `npm i && tsc`
 
-Create a kani folder and add your crabs and countries in it.
+Create a kani folder in the parent folder and add your crabs in it.
 Output will be in a dist folder.
 
 Contributing
