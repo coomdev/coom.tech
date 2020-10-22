@@ -6,6 +6,11 @@
 	max-height: 50vh;
 }
 
+.content p a {
+	padding: 5px;
+	display: inline;
+}
+
 h2 {
 	text-align: center;
 }
