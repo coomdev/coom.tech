@@ -12,6 +12,11 @@
 			"desc": "Exhaustive program if you're managing a large collection and need something more than folders to organize and maintain."
 		},
 		{
+			"url": "https://tmsu.org/",
+			"name": "TMSU",
+			"desc": "File tagging tool with a neat virtual FS"
+		},
+		{
 			"url": "https://stashapp.cc",
 			"name": "stashapp",
 			"desc": "FOSS Porn organizer"
