@@ -103,9 +103,9 @@
 					"desc": "Booru client, with a better viewer than LoliSnatch according to anon (not maintained anymore)."
 				},
 				{
-					"url": "http://www.ehviewer.com/",
+					"url": "https://github.com/NekoInverter/EhViewer",
 					"name": "ehviewer",
-					"desc": "E-Hentai viewer (not maintained anymore)"
+					"desc": "E-Hentai viewer fork that is maintained"
 				}
 			]
 		}
