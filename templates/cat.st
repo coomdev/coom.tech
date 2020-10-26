@@ -6,11 +6,12 @@
 </head>
 <body>
   <img class="coom" src="/cunny"/>
-	<h2>{{category}}</h2>
+  <a href="/"><h1>Back to Homepage</h1></a>
+  <h2>{{category}}</h2>
 
-	<div class="content">
+  <div class="content">
 	{{#content}}
 	{{> intcat}}
 	{{/content}}
-	</div>
+  </div>
 </body>
