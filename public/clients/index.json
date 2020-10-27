@@ -12,6 +12,16 @@
 			"desc": "C program made specifically to scrape ExHentai Galleries"
 		},
 		{
+			"url": "https://github.com/project-violet/violet",
+			"name": "violet",
+			"desc": "Flutter-based client for e*hentai and hitomi, for Android and iOS"
+		},
+		{
+			"url": "https://github.com/Kordesii/HentaiHavenContentDownloader",
+			"name": "HHCD",
+			"desc": "GUI tool to scrape HentaiHaven"
+		},
+		{
 			"url": "https://github.com/RicterZ/nhentai",
 			"name": "nHentai",
 			"desc": "nHentai is a CLI tool for downloading doujinshi from nhentai.net"
