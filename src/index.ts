@@ -3,9 +3,13 @@ import fs = require('fs');
 import Static = require('koa-static');
 import send = require('koa-send');
 import Router = require('koa-router');
-const router = new Router();
+const router = new Router<koa.DefaultState, koa.DefaultContext>();
 import bodyParser = require('koa-bodyparser');
 import mustache = require('mustache');
+
+import multer = require('@koa/multer');
+
+const upload = multer({ limits: { fileSize: 8 * 1024 * 1024 } });
 
 router.post('/sugg', (ctx, next) => {
 	fs.writeFileSync(`messages/${+new Date}.txt`, ctx.request.body.content);
@@ -52,13 +56,23 @@ interface TemplateData {
 	content: AllEntries[];
 }
 
+
+
 class FileBackedValue<T> {
 	value: T;
-	constructor(path: string, transformer: (a: string) => T = (e) => JSON.parse(e)) {
+	constructor(path: string,
+		defaultval?: T,
+		transformer: (a: string) => T = (e) => JSON.parse(e)
+	) {
 		this.value = transformer(fs.readFileSync(path).toString());
 		fs.watch(path, (e) => {
-			if (e == 'change')
-				this.value = transformer(fs.readFileSync(path).toString());
+			if (e == 'change') {
+				try {
+					this.value = transformer(fs.readFileSync(path).toString());
+				} catch {
+					this.value = defaultval!;
+				}
+			}
 		})
 	}
 
@@ -69,7 +83,7 @@ class FileBackedValue<T> {
 
 for (let i in obs) {
 	let n = i as (keyof typeof obs);
-	let k = new FileBackedValue<string>(obs[n], e => e);
+	let k = new FileBackedValue<string>(obs[n], '', e => e);
 	templates[n] = k;
 }
 
@@ -81,15 +95,20 @@ interface HomeData {
 	}[];
 }
 
-let homedata = new FileBackedValue<HomeData>('public/index.json');
+let homedata = new FileBackedValue<HomeData>('public/index.json', { categories: [] });
 
 let datacache: { [k in string]?: FileBackedValue<TemplateData> } = {};
 for (let d of homedata.get().categories) {
-	datacache[d.href.substr(2)] = new FileBackedValue<TemplateData>(`public/${d.href}/index.json`);
+	datacache[d.href.substr(2)] = new FileBackedValue<TemplateData>(`public/${d.href}/index.json`, { category: '', content: [] });
 }
 
 //let content = [];
 let content = fs.readdirSync('kani');
+
+fs.watch('./kani', { recursive: false }, () => {
+	content = fs.readdirSync('kani');
+});
+
 router.get('/cunny', (ctx, next) => {
 	let str = content[~~(Math.random() * content.length)];
 	return send(ctx, str, { root: './kani' });
@@ -97,6 +116,14 @@ router.get('/cunny', (ctx, next) => {
 
 router.get('/kani', async (ctx, next) => {
 	ctx.body = content;
+});
+
+let k = upload.single();
+
+import path = require('path');
+router.post('/kani', k, async (ctx, next) => {
+	await fs.promises.rename(ctx.file.path, `./pending_kani/${+new Date}${path.extname(ctx.file.filename)}`);
+	ctx.body = 'done';
 });
 
 router.get('/kani/:fn', async (ctx, next) => {
