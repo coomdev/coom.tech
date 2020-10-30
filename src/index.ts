@@ -77,7 +77,7 @@ class FileBackedValue<T> {
 }
 
 for (let i of obs) {
-	templates[i] = new FileBackedValue<string>(i, '', e => e);
+	templates[i] = new FileBackedValue<string>(path.join(reporoot, 'templates', `${i}.st`), '', e => e);
 }
 
 interface HomeData {
@@ -88,7 +88,6 @@ interface HomeData {
 	}[];
 }
 const pblc = path.join(reporoot, 'public');
-
 
 let homedata = new FileBackedValue<HomeData>(path.join(pblc, 'index.json'), { categories: [] });
 
