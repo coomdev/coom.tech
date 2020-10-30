@@ -1,0 +1,16 @@
+[Unit]
+Description=Coom Website
+After=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/bin/node /www/coom/dist/index.js
+ExecReload=/bin/kill $MAINPID && /usr/bin/node /www/coom/dist/index.js
+ExecStop=/bin/kill $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
