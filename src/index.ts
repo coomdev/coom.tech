@@ -101,7 +101,7 @@ const kani = path.join(reporoot, 'kani');
 const pkani = path.join(reporoot, 'pending_kani');
 let content = fs.readdirSync(kani);
 
-fs.watch('./kani', { recursive: false }, () => {
+fs.watch(kani, { recursive: false }, () => {
 	content = fs.readdirSync(kani);
 });
 
