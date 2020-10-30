@@ -95,7 +95,14 @@ router.get('/cunny', (ctx, next) => {
 	return send(ctx, str, { root: './kani' });
 });
 
+router.get('/kani', async (ctx, next) => {
+	ctx.body = content;
+});
 
+router.get('/kani/:fn', async (ctx, next) => {
+	let p = ctx.params['fn'];
+	return send(ctx, p, { root: './kani' });
+});
 
 router.get('/category/:cat', async (ctx, next) => {
 	let p = ctx.params['cat'];
