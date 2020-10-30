@@ -6,7 +6,7 @@ import Router = require('koa-router');
 const router = new Router<koa.DefaultState, koa.DefaultContext>();
 import bodyParser = require('koa-bodyparser');
 import mustache = require('mustache');
-
+import path = require('path');
 import multer = require('@koa/multer');
 
 const upload = multer({ limits: { fileSize: 8 * 1024 * 1024 } });
@@ -118,11 +118,8 @@ router.get('/kani', async (ctx, next) => {
 	ctx.body = content;
 });
 
-let k = upload.single();
-
-import path = require('path');
-router.post('/kani', k, async (ctx, next) => {
-	await fs.promises.rename(ctx.file.path, `./pending_kani/${+new Date}${path.extname(ctx.file.filename)}`);
+router.post('/kani', upload.single('file'), async (ctx, next) => {
+	await fs.promises.writeFile(`./pending_kani/${+new Date}${path.extname(ctx.file.originalname)}`, ctx.file.buffer)
 	ctx.body = 'done';
 });
 
