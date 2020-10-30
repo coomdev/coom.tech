@@ -9,10 +9,13 @@ import mustache = require('mustache');
 import path = require('path');
 import multer = require('@koa/multer');
 
+const reporoot = path.normalize(__dirname + '/..');
+
 const upload = multer({ limits: { fileSize: 8 * 1024 * 1024 } });
 
 router.post('/sugg', (ctx, next) => {
-	fs.writeFileSync(`messages/${+new Date}.txt`, ctx.request.body.content);
+	fs.writeFileSync(
+		path.join(reporoot, 'messages', `${+new Date}.txt`), ctx.request.body.content);
 	ctx.response.body = `
 <!DOCTYPE html>
 <head>
@@ -27,15 +30,9 @@ router.post('/sugg', (ctx, next) => {
 `;
 });
 
+const obs: ['home', 'cat', 'intcat'] = ['home', 'cat', 'intcat'];
 
-
-const obs = {
-	home: 'templates/home.st',
-	cat: 'templates/cat.st',
-	intcat: 'templates/intcat.st'
-};
-
-const templates: { [k in keyof typeof obs]?: FileBackedValue<string> } = {};
+const templates: { [k in typeof obs[number]]?: FileBackedValue<string> } = {};
 
 type Entry = {
 	url: string;
@@ -55,8 +52,6 @@ interface TemplateData {
 	category: string;
 	content: AllEntries[];
 }
-
-
 
 class FileBackedValue<T> {
 	value: T;
@@ -81,10 +76,8 @@ class FileBackedValue<T> {
 	}
 }
 
-for (let i in obs) {
-	let n = i as (keyof typeof obs);
-	let k = new FileBackedValue<string>(obs[n], '', e => e);
-	templates[n] = k;
+for (let i of obs) {
+	templates[i] = new FileBackedValue<string>(i, '', e => e);
 }
 
 interface HomeData {
@@ -94,24 +87,28 @@ interface HomeData {
 		desc: string;
 	}[];
 }
+const pblc = path.join(reporoot, 'public');
 
-let homedata = new FileBackedValue<HomeData>('public/index.json', { categories: [] });
+
+let homedata = new FileBackedValue<HomeData>(path.join(pblc, 'index.json'), { categories: [] });
 
 let datacache: { [k in string]?: FileBackedValue<TemplateData> } = {};
 for (let d of homedata.get().categories) {
-	datacache[d.href.substr(2)] = new FileBackedValue<TemplateData>(`public/${d.href}/index.json`, { category: '', content: [] });
+	datacache[d.href.substr(2)] = new FileBackedValue<TemplateData>(path.join(pblc, d.href, 'index.json'), { category: '', content: [] });
 }
 
 //let content = [];
-let content = fs.readdirSync('kani');
+const kani = path.join(reporoot, 'kani');
+const pkani = path.join(reporoot, 'pending_kani');
+let content = fs.readdirSync(kani);
 
 fs.watch('./kani', { recursive: false }, () => {
-	content = fs.readdirSync('kani');
+	content = fs.readdirSync(kani);
 });
 
 router.get('/cunny', (ctx, next) => {
 	let str = content[~~(Math.random() * content.length)];
-	return send(ctx, str, { root: './kani' });
+	return send(ctx, str, { root: kani });
 });
 
 router.get('/kani', async (ctx, next) => {
@@ -119,13 +116,13 @@ router.get('/kani', async (ctx, next) => {
 });
 
 router.post('/kani', upload.single('file'), async (ctx, next) => {
-	await fs.promises.writeFile(`./pending_kani/${+new Date}${path.extname(ctx.file.originalname)}`, ctx.file.buffer)
+	await fs.promises.writeFile(path.join(pkani, `${+new Date}${path.extname(ctx.file.originalname)}`), ctx.file.buffer)
 	ctx.body = 'done';
 });
 
 router.get('/kani/:fn', async (ctx, next) => {
 	let p = ctx.params['fn'];
-	return send(ctx, p, { root: './kani' });
+	return send(ctx, p, { root: kani });
 });
 
 router.get('/category/:cat', async (ctx, next) => {
@@ -150,8 +147,8 @@ root.use(bodyParser())
 	.use(router.routes())
 	.use(router.allowedMethods());
 
-root.use(Static('./public', {
+root.use(Static(pblc, {
 	index: 'index.html',
-	root: './public'
-})).use((c) => send(c, 'index.html', { root: './public' }));
+	root: pblc
+})).use((c) => send(c, 'index.html', { root: pblc }));
 root.listen(1243, '127.0.0.1', () => console.log('Listening...'));
