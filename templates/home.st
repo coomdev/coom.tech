@@ -24,6 +24,7 @@
 			<p>Send me suggestions for new links/categories to add, or things to remove if they're outclassed by something/irrelevant</p>
 			<p>I'll still add things from the thread on my own if I deem them interesting, but feel free to suggest things I may have missed/didn't consider interesting.</p>
 			<p>You are also welcome to coomtribute on <a href="https://github.com/coomdev/coom.tech">GitHub®</a>.</p>
+			<p>You can also upload repos on <a href="https://git.coom.tech/">our Gitea</a> (no mail verification is required)</p>
 		</div>
 			<form method="POST" action="/sugg">
 				<textarea rows="20" cols="80" name="content" placeholder="Here's my great suggestion!"></textarea>
