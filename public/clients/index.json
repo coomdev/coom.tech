@@ -2,6 +2,11 @@
 	"category": "Clients",
 	"content": [
 		{
+			"url": "https://gitlab.com/valos/Komikku",
+			"name": "Komikku",
+			"desc": "An online/offline manga reader for GNOME"
+		},
+		{
 			"url": "https://github.com/KurtBestor/Hitomi-Downloader",
 			"name": "Hitomi Downloader",
 			"desc": "GUI Utility to download from a lot of different websites, galleries, streaming services..."
