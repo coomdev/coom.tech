@@ -2,6 +2,16 @@
 	"category": "Miscellaneous",
 	"content": [
 		{
+			"url": "https://github.com/kycklingar/PBooru",
+			"name": "PBooru",
+			"desc": "A decentralized booru that stores and distribute content from IPFS"
+		},
+		{
+			"url": "https://gitgud.io/koto/hydrus-dd",
+			"name": "hydrus-dd",
+			"desc": "DeepDanbooru neural network tagging for Hydrus"
+		},
+		{
 			"url": "https://github.com/k0rnh0li0/onlyfans-dl",
 			"name": "onlyfans-dl",
 			"desc": "The jew fears the coomer."
