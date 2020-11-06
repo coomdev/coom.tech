@@ -82,7 +82,16 @@ body {
 	display: table;
 	margin-right: auto;
 	/* text-decoration: none; */
-	font-size: xxx-large;
+	font-size: 3em;
+}
+
+a.commit {
+	font-size: 0.5rem;
+	display: inline-block;
+}
+
+hr {
+	border: 1px solid;
 }
 
 .subcat {

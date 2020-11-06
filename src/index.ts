@@ -8,6 +8,24 @@ import bodyParser = require('koa-bodyparser');
 import mustache = require('mustache');
 import path = require('path');
 import multer = require('@koa/multer');
+import cp = require('child_process');
+
+const commitstr = cp.spawnSync('git', ['-C', '.', 'log', `--pretty=format:%h%x00%ad%x00%s%x00%b%x00`]).stdout.toString();
+const grouped = commitstr.split('\x00\n').map(s => s.split('\x00'));
+
+const options = {
+	year: 'numeric', month: 'numeric', day: 'numeric',
+	hour: 'numeric', minute: 'numeric',
+	hour12: false,
+	timeZone: 'America/Los_Angeles'
+};
+
+let commits = grouped.map(g => ({
+		hash: g[0],
+		date: Intl.DateTimeFormat('en-US', options).format(new Date(g[1])),
+		subject: g[2] || '',
+		message: g[3] || ''
+	})).filter(m => !m.subject.toLowerCase().includes('merge')).slice(0, 5);
 
 const reporoot = path.normalize(__dirname + '/..');
 
@@ -135,7 +153,7 @@ router.get('/category/:cat', async (ctx, next) => {
 });
 
 router.get('/', async (ctx, next) => {
-	ctx.body = mustache.render(templates.home!.get(), homedata.get());
+	ctx.body = mustache.render(templates.home!.get(), { ...homedata.get(), commits });
 	return next;
 });
 

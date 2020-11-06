@@ -20,15 +20,27 @@
 		</a>
 		{{/categories}}
 	</div>
+	<h2>Recent changes</h2>
+	<div class="content">
+	{{#commits}}
+		<a href="https://github.com/coomdev/coom.tech/commit/{{hash}}" class="commit">
+			<span>{{date}}</span>
+			<hr>
+			<span>{{subject}}</span>
+		</a>
+		{{/commits}}
+	</div>
 	<h2>Suggestions</h2>
 	<div class="content">
+
 		<div>
 			<p>Send me suggestions for new links/categories to add, or things to remove if they're outclassed by
 				something/irrelevant</p>
 			<p>I'll still add things from the thread on my own if I deem them interesting, but feel free to suggest
 				things I may have missed/didn't consider interesting.</p>
 			<p>You are also welcome to coomtribute on <a href="https://github.com/coomdev/coom.tech">GitHub®</a>.</p>
-			<p>You can also upload repos on <a href="https://git.coom.tech/">our Gitea</a> (no mail verification is required)</p>
+			<p>You can also upload repos on <a href="https://git.coom.tech/">our Gitea</a> (no mail verification is
+				required)</p>
 		</div>
 		<form method="POST" action="/sugg">
 			<textarea rows="20" cols="80" name="content" placeholder="Here's my great suggestion!"></textarea>
@@ -49,22 +61,23 @@
 					<tr>
 						<th>/<i>:category</i>/index.json</th>
 						<th>GET</th>
-						<th>For any category in ["clients", "misc", "toys", "games", "manage"], returns the section content.</th>
+						<th>For any category in ["clients", "misc", "toys", "games", "manage"], returns the section
+							content.</th>
 					</tr>
 					<tr>
 						<th>/cunny</th>
 						<th>GET</th>
-						<th>Returns a random image from a specially curated selection of pictures.</th>					
+						<th>Returns a random image from a specially curated selection of pictures.</th>
 					</tr>
 					<tr>
 						<th>/kani</th>
 						<th>GET</th>
-						<th>Returns a list of all available images from their filenames.</th>					
+						<th>Returns a list of all available images from their filenames.</th>
 					</tr>
 					<tr>
 						<th>/kani/<i>:filename</i></th>
 						<th>GET</th>
-						<th>Returns the requested image.</th>					
+						<th>Returns the requested image.</th>
 					</tr>
 					<tr>
 						<th>/kani</th>
